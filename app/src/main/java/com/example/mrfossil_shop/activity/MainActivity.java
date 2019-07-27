@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.example.mrfossil_shop.R;
 import com.example.mrfossil_shop.fragments.HomeFragment;
-import com.example.mrfossil_shop.fragments.ShopFragment;
+import com.example.mrfossil_shop.fragments.NewsFragment;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navView;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.navigation_dashboard:
-                    fragment = new ShopFragment();
+                    fragment = new NewsFragment();
                     break;
             }
             item.setChecked(true);
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navView.setItemIconTintList(null);
+        navView.setItemIconSize(85);
+        navView.setBackgroundColor(MainActivity.this.getResources().getColor(R.color.gray_67717b));
         initContent();
     }
 

@@ -12,5 +12,27 @@
     <color name="black_625956">#625956</color>
     <color name="tab_text_color">#7D7D7E</color>
 
+    <color name="colorTitleBar">#686763</color>
+    <color name="colorTitleBarText">#FFFFFF</color>
+    <color name="register_title">#686763</color>
+
+    <!--灰色系-->
+    <color name="gray_e1d2cb">#e1d2cb</color>
+    <color name="gray_f5ebe2">#f5ebe2</color>
+    <color name="gray_f7f7f7">#f7f7f7</color>
+    <color name="gray_dcdce4">#dcdce4</color>
+    <color name="gray_adb1b2">#adb1b2</color>
+    <color name="gray_c3d1dc">#c3d1dc</color>
+    <color name="gray_dfe3e6">#dfe3e6</color>
+    <color name="gray_9d9b9c">#9d9b9c</color>
+
+    <!--目前顏色-->
+    <color name="gray_686763">#686763</color>
+    <color name="gray_67717b">#67717b</color>
+    <color name="gray_e4ddd3">#e4ddd3</color>
+
+    <color name="price_red">#FF0000</color>
+
+    <color name="bt_orange">#FF8800</color>
 
 </resources>

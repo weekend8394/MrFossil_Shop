@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recycler_view_click_support" type="id" />
+    <item name="position" type="id" />
+    <item name="res_id" type="id" />
+    <item name="holder_id" type="id" />
+    <item name="window_title_bar_id" type="id" />
+
+    <!-- Title Bar -->
+    <item name="title_bar_title" type="id" />
+    <item name="title_bar_left" type="id" />
+    <item name="title_bar_right" type="id" />
+</resources>

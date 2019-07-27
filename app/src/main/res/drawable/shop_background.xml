@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?><!-- android:shape指定形狀類型，默認為rectangle -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/logo"/>
-<shape
-    android:shape="rectangle">
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!-- 背景圖層 -->
+    <!--<item android:drawable="@drawable/logo"/>-->
+<shape android:shape="rectangle"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- solid指定形狀的填充色，只有android:color一個屬性 -->
-    <!--<solid android:color="@color/tab_text_color" />-->
+    <solid android:color="@color/gray_9d9b9c"/>
     <!-- padding設置內容區域離邊界的間距 -->
     <!-- corners設置圓角，只適用於rectangle -->
     <corners android:radius="20dp" />
     <!-- stroke設置描邊 -->
 </shape>
-</layer-list>
+<!--</layer-list>-->

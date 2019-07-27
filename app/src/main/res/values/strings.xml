@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Mr.Fossil_Shop</string>
     <string name="title_home">首頁</string>
-    <string name="title_shop">購物車</string>
+    <string name="title_shop">最新消息</string>
 
 
     <!--字型大小-->

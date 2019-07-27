@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DefaultTitleBar">
+        <attr name="leftSrc" format="reference" />
+        <attr name="rightSrc" format="reference" />
+        <attr name="lefText" format="reference" />
+        <attr name="rightText" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="titleBarText" format="reference" />
+        <attr name="titleBarColor" format="color" />
+        <attr name="titleBarIconSize" format="dimension" />
+        <attr name="isLimitTitleWidth" format="boolean" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProductInfo">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/dinosaur"/>
+
+    <TextView
+        android:id="@+id/tv_Price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_Buy"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/price_red"
+        android:text="$16元"
+        android:textSize="16dp"/>
+
+    <Button
+        android:id="@+id/bt_Buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/background_button"
+
+        android:text="加入購物車"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_Price"
+        app:layout_constraintTop_toBottomOf="@+id/bt_Buy"
+        android:text="恐龍"
+        android:textSize="24dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_Price"
+        app:layout_constraintTop_toBottomOf="@id/tv_product_name"
+        android:text="123456789"/>
+
+</android.support.constraint.ConstraintLayout>
