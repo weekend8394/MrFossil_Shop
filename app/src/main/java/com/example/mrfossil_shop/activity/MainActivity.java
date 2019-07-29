@@ -7,14 +7,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 
 import com.example.mrfossil_shop.R;
 import com.example.mrfossil_shop.fragments.HomeFragment;
 import com.example.mrfossil_shop.fragments.NewsFragment;
+import com.example.mrfossil_shop.views.BottomNavigationViewExtension;
 
-public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView navView;
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
+    private BottomNavigationViewExtension navView;
     private Fragment fragment = new Fragment();
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -43,7 +45,20 @@ public class MainActivity extends AppCompatActivity {
         navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setItemIconTintList(null);
-        navView.setItemIconSize(85);
+//        navView.setItemIconSize(60);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        float density = displayMetrics.density;
+
+        navView.enableAnimation(false);
+        navView.enableShiftingMode(false);
+        navView.enableItemShiftingMode(false);
+        navView.setTextSize(10);
+        navView.setIconsMarginTop((int) (6 * density));
+        navView.setIconSize(20, 20);
+        navView.setItemHeight((int) (50 * density));
+        navView.setOnNavigationItemSelectedListener(this);
+        navView.setSelectedItemId(R.id.navigation_home);
+
         navView.setBackgroundColor(MainActivity.this.getResources().getColor(R.color.gray_67717b));
         initContent();
     }
@@ -59,5 +74,26 @@ public class MainActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content, fragment);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new HomeFragment();
+                break;
+
+            case R.id.navigation_dashboard:
+                fragment = new NewsFragment();
+                break;
+        }
+        menuItem.setChecked(true);
+        changeFragment(fragment);
+        return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

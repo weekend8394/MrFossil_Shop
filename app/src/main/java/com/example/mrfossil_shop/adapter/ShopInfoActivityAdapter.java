@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ShopInfoActivityAdapter extends BaseQuickAdapter<Object, BaseViewHolder> {
     public ShopInfoActivityAdapter(@Nullable List data) {
-        super(R.layout.item_shop_product, data);
+        super(R.layout.item_shop_product_linearlayout, data);
     }
 
     @Override
@@ -19,6 +19,6 @@ public class ShopInfoActivityAdapter extends BaseQuickAdapter<Object, BaseViewHo
         ShopProduct data = (ShopProduct) item;
         helper.setImageResource(R.id.iv_headPic,data.getImageRes());
         helper.setText(R.id.title,data.getProductName());
-        helper.setText(R.id.tv_price,"NT" + data.getPrice() + "元");
+        helper.setText(R.id.tv_price,data.getProductDescription());
     }
 }

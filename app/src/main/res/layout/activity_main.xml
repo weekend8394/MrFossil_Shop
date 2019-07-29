@@ -15,7 +15,8 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view">
     </FrameLayout>
 
-    <android.support.design.widget.BottomNavigationView
+
+    <com.example.mrfossil_shop.views.BottomNavigationViewExtension
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -26,6 +27,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:itemTextColor="@color/gray_adb1b2"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu">
 
+    </com.example.mrfossil_shop.views.BottomNavigationViewExtension>
 </android.support.constraint.ConstraintLayout>

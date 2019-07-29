@@ -1,14 +1,12 @@
 package com.example.mrfossil_shop.activity;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.BaseAdapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.mrfossil_shop.R;
@@ -16,7 +14,6 @@ import com.example.mrfossil_shop.adapter.ShopInfoActivityAdapter;
 import com.example.mrfossil_shop.model.ShopData;
 import com.example.mrfossil_shop.model.ShopProduct;
 import com.example.mrfossil_shop.views.DefaultTitleBar;
-import com.example.mrfossil_shop.views.GridSpacingItemDecoration;
 import com.example.mrfossil_shop.views.TitleBar;
 
 import java.util.ArrayList;
@@ -75,6 +72,9 @@ public class ShopInfoActivity extends AppCompatActivity {
             }
         });
     }
+    private void initHeadView(){
+
+    }
 
     private enum LayoutManagerType {
         GRID_LAYOUT_MANAGER,
@@ -119,16 +119,16 @@ public class ShopInfoActivity extends AppCompatActivity {
     private void initAdapter(){
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,column);
         recyclerView.setLayoutManager(gridLayoutManager);
-//        recyclerView.addItemDecoration(new GridSpacingItemDecoration(column,spacing,includeEdge));
         setRecyclerViewLayoutManager(LayoutManagerType.LINEAR_LAYOUT_MANAGER);
         shopInfoAdapter = new ShopInfoActivityAdapter(shopProduct);
+        shopInfoAdapter.setOnItemClickListener(mItemClickListener);
         recyclerView.setAdapter(shopInfoAdapter);
     }
 
     private BaseQuickAdapter.OnItemClickListener mItemClickListener = (adapter, view, position) -> {
-        Intent intent = new Intent(this, ShopInfoActivity.class);
+        Intent intent = new Intent(this, ProductInfo.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("shopData",shopProduct.get(position));
+        bundle.putSerializable("shopProduct",shopProduct.get(position));
         intent.putExtras(bundle);
         this.startActivity(intent);
     };
@@ -140,7 +140,7 @@ public class ShopInfoActivity extends AppCompatActivity {
         if (recyclerView.getLayoutManager() != null) {
             scrollPosition = ((LinearLayoutManager) recyclerView.getLayoutManager())
                     .findFirstCompletelyVisibleItemPosition();
-            // 获取当前第一个可见Item的position
+            // 獲取當前第一個可見Item的position
         }
 
         switch (layoutManagerType) {

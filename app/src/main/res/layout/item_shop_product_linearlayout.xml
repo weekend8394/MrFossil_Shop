@@ -16,6 +16,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/logo"/>
 
     <TextView
@@ -40,6 +41,7 @@
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toBottomOf="@id/iv_headPic"
+        android:lines="2"
         android:text="今天天氣好"/>
 
 </android.support.constraint.ConstraintLayout>
