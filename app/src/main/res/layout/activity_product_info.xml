@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:leftSrc="@drawable/btn_arrow_left_white">
+        app:leftSrc="@drawable/btn_arrow_left_white"
+        app:rightSrc="@drawable/dinosaur2">
     </com.example.mrfossil_shop.views.DefaultTitleBar>
 
     <ScrollView

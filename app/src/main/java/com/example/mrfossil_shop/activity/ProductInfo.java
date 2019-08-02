@@ -1,6 +1,7 @@
 package com.example.mrfossil_shop.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.mrfossil_shop.R;
 import com.example.mrfossil_shop.model.ShopProduct;
+import com.example.mrfossil_shop.model.ShopingCart;
 import com.example.mrfossil_shop.views.AddshoppingCartDialog;
 import com.example.mrfossil_shop.views.DefaultTitleBar;
 import com.example.mrfossil_shop.views.TitleBar;
@@ -20,8 +22,6 @@ public class ProductInfo extends AppCompatActivity {
     private ImageView imageView;
     private TextView tvPrice,tvProductName,tvDescription;
     private Button btBuy;
-    private ProgressDialog progressDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,10 @@ public class ProductInfo extends AppCompatActivity {
             }
 
             @Override
-            public void onTitleBarRightButtonsClick(View v, int position) { }
+            public void onTitleBarRightButtonsClick(View v, int position) {
+                Intent intent = new Intent(ProductInfo.this, ShoppingCartActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }

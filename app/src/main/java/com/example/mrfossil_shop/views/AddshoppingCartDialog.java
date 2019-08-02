@@ -9,9 +9,12 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mrfossil_shop.R;
+import com.example.mrfossil_shop.db.ShoppingCartDBHelper;
 import com.example.mrfossil_shop.model.ShopProduct;
+import com.example.mrfossil_shop.model.ShopingCart;
 
 
 public class AddshoppingCartDialog extends Dialog {
@@ -20,10 +23,13 @@ public class AddshoppingCartDialog extends Dialog {
     private Button btAdd,btCut,btOk;
     private ShopProduct mProductInfo;
     private int counter = 1;
+    private ShoppingCartDBHelper dbShoppingCart;
+    private Context mContext;
 
     public AddshoppingCartDialog(Context context, ShopProduct productInfo) {
         super(context,R.style.ActionSheetDialogStyle);
         this.mProductInfo = productInfo;
+        this.mContext = context;
     }
 
     @Override
@@ -44,6 +50,11 @@ public class AddshoppingCartDialog extends Dialog {
 
         btCut.setEnabled(false);
         btCut.setTextColor(getContext().getResources().getColor(R.color.gray_dcdce4));
+
+        if(dbShoppingCart == null){
+            dbShoppingCart = new ShoppingCartDBHelper(mContext);
+        }
+
 
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +84,21 @@ public class AddshoppingCartDialog extends Dialog {
         btOk.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View v) {
+                ShopingCart shopingCart = new ShopingCart();
+                shopingCart.setName(mProductInfo.getProductName());
+                shopingCart.setImageSrc(mProductInfo.getImageRes());
+                shopingCart.setAmount(Integer.valueOf(tvCounter.getText().toString()));
+                shopingCart.setDescription(mProductInfo.getProductDescription());
+                shopingCart.setPrice(mProductInfo.getPrice());
+
+                long rowId = dbShoppingCart.insert(shopingCart);
+                if(rowId != -1){
+                    Toast.makeText(mContext,"加入購物車成功",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(mContext,"加入購物車失敗",
+                            Toast.LENGTH_SHORT).show();
+                }
                 dismiss();
             }
         });

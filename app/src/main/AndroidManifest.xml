@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.ProductInfo"></activity>
+        <activity android:name=".activity.ShoppingCartActivity"></activity>
+        <activity android:name=".activity.ProductInfo" />
         <activity android:name=".activity.ShopInfoActivity" />
         <activity android:name=".activity.LoadingActivity">
             <intent-filter>
