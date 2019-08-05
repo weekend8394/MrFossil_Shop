@@ -29,13 +29,14 @@ public class ShoppingCartDBHelper extends SQLiteOpenHelper {
     private static final String description = "description";//產品描述
 
     /**建表格*/
-    private static final String TABLE_CREATE = "CREATE TABLE " + TABLE_NAME + "(" +
+    private static final String TABLE_CREATE =
+            "CREATE TABLE " + TABLE_NAME + "( " +
             id + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             name + " TEXT NOT NULL, " +
             imageSrc + " INTEGER, " +
             price + " INTEGER, " +
             amount + " INTEGER, " +
-            description + " TEXT );";
+            description + " TEXT ); ";
 
     public ShoppingCartDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -84,20 +85,20 @@ public class ShoppingCartDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public ShopingCart findById(int id){
+    public ShopingCart findById(int mid){
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "SELECT * FROM ShoppingCart WHERE id = " + id + ";";
+        String sql = "SELECT * FROM ShoppingCart WHERE id = " + mid + ";";
         String[] args = {};
         Cursor cursor = db.rawQuery(sql,args);
         ShopingCart shopingCart = null;
         if(cursor.moveToNext()){
-            id = cursor.getInt(0);
+            mid = cursor.getInt(0);
             String name = cursor.getString(1);
             int imageSrc = cursor.getInt(2);
             int price = cursor.getInt(3);
             int amount = cursor.getInt(4);
             String description = cursor.getString(5);
-            shopingCart = new ShopingCart(id,name,imageSrc,price,amount,description);
+            shopingCart = new ShopingCart(mid,name,imageSrc,price,amount,description);
         }
         cursor.close();
         return shopingCart;
@@ -111,8 +112,6 @@ public class ShoppingCartDBHelper extends SQLiteOpenHelper {
         values.put(price, shopingCart.getPrice());
         values.put(amount, shopingCart.getAmount());
         values.put(description, shopingCart.getDescription());
-//        String whereClause = id + " = ?;";
-//        String[] whereArgs = {Integer.toString(shopingCart.getId())};
         return db.insert(TABLE_NAME,null, values);
     }
 
@@ -124,15 +123,15 @@ public class ShoppingCartDBHelper extends SQLiteOpenHelper {
         values.put(price,shopingCart.getPrice());
         values.put(amount,shopingCart.getAmount());
         values.put(description,shopingCart.getDescription());
-        String whereClause = id + " = ? ;";
+        String whereClause = id + " = ?;";
         String[] whereArgs = {Integer.toString(shopingCart.getId())};
         return db.update(TABLE_NAME,values,whereClause,whereArgs);
     }
 
-    public int deleteById(int id ){
+    public int deleteById(int mId){
         SQLiteDatabase db = getWritableDatabase();
         String whereClause = id + " = ?;";
-        String[] whereArgs = {String.valueOf(id)};
-        return db.delete(TABLE_NAME,whereClause,whereArgs);
+        String[] whereArgs = {String.valueOf(mId)};
+        return db.delete(TABLE_NAME, whereClause, whereArgs);
     }
 }

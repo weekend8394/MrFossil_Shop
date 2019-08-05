@@ -40,8 +40,7 @@ public class ProductInfo extends AppCompatActivity {
         btBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AddshoppingCartDialog(ProductInfo.this,shopProduct)
-                        .show();
+                new AddshoppingCartDialog(ProductInfo.this,shopProduct).show();
             }
         });
     }
